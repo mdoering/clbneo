@@ -3,8 +3,10 @@ package org.gbif.checklistbank;
 import java.io.File;
 import java.io.IOException;
 
+import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
+import org.neo4j.graphdb.traversal.TraversalDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +16,9 @@ import org.slf4j.LoggerFactory;
 public class NeoExport {
   private static final Logger LOG = LoggerFactory.getLogger(NeoExport.class);
   private GraphDatabaseService db;
+  private TraversalDescription rootTraverse = db.traversalDescription()
+    .depthFirst()
+    .relationships(RelType.PARENT_OF, Direction.INCOMING);
 
   public void exportDwca(String name) {
     initNeo(name);
@@ -27,6 +32,7 @@ public class NeoExport {
       //.setConfig()
       .newGraphDatabase();
   }
+
 
   public static void main (String[] args) throws IOException {
     NeoExport neo = new NeoExport();
