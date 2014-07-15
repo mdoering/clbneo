@@ -10,7 +10,7 @@
 
   <groupId>org.gbif.checklistbank</groupId>
   <artifactId>clbneo</artifactId>
-  <version>2.8-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
 
   <url>http://github.org/mdoering/clbneo</url>
 
@@ -23,11 +23,11 @@
   <properties>
     <jdkLevel>1.7</jdkLevel>
 
-    <dwc-api.version>1.7</dwc-api.version>
-    <gbif-api.version>0.14</gbif-api.version>
+    <dwc-api.version>1.8</dwc-api.version>
+    <gbif-api.version>0.15</gbif-api.version>
     <name-parser.version>2.4</name-parser.version>
     <dwca-reader.version>1.17</dwca-reader.version>
-    <checklistbank.version>2.4</checklistbank.version>
+    <checklistbank.version>2.7</checklistbank.version>
     <!-- external libs -->
     <gbif-common.version>0.16</gbif-common.version>
     <commmons-lang.version>3.3.1</commmons-lang.version>
@@ -39,6 +39,7 @@
     <jackson.version>1.9.12</jackson.version>
     <junit.version>4.11</junit.version>
     <logback.version>1.1.2</logback.version>
+    <metrics.version>3.0.0-BETA1</metrics.version>
     <mockito.version>1.9.5</mockito.version>
     <neo4j.version>2.1.2</neo4j.version>
     <postgresql.version>9.2-1003-jdbc4</postgresql.version> <!-- 9.3-1101-jdbc41 -->
@@ -223,6 +224,16 @@
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
       <version>${findbugs-jsr305.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.yammer.metrics</groupId>
+      <artifactId>metrics-core</artifactId>
+      <version>${metrics.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.yammer.metrics</groupId>
+      <artifactId>metrics-jvm</artifactId>
+      <version>${metrics.version}</version>
     </dependency>
 
     <!-- TEST SCOPE -->
